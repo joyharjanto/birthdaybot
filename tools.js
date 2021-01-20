@@ -14,16 +14,17 @@ function testsendEmails() {
     SsheetDate = Utilities.formatDate(sheetDate,'GMT-0500', 'yyyy:MM:dd')
     Logger.log(Sdate+' =? '+SsheetDate)
     console.log(Sdate === SsheetDate)
+    
     if(Sdate === SsheetDate){
-      console.log("accurate")
-      var email = row[0];
-      var name = row[1];
-      var event = row[4];
-      var subject = 'Special day reminder';
-      var todaysDate = Sdate;
-      var message = "Today is the "+ Sdate+ ". It is " + name + "'s " + event;
-      console.log(message)
-      MailApp.sendEmail(email, subject, message);
+        var email = row[0];
+        var name = row[1];      
+        var actualdate = Utilities.formatDate(row[2],'GMT-0500','MM:dd');
+        var event = row[4];
+        var subject = 'Special day reminder';
+        var todaysDate = Sdate;
+        var message = "Hey " + yourName + "!" + " Today is the "+ Sdate+ ". It is " + name + "'s " + event + " on " + actualdate;
+        console.log(message)
+        MailApp.sendEmail(email, subject, message);
     }
   }
 }
