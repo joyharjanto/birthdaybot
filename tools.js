@@ -4,7 +4,7 @@ function sendEmails() {
  var numRows = sheet.getLastRow(); // last row
  var dataRange = sheet.getRange(startRow, 1, numRows, sheet.getLastColumn()); // get data in range
  var data = dataRange.getValues();
- var yourName = "Caitlyn Tjahjadi"
+ var yourName = "Joy Harjanto"
  
  for(i in data){
    var row = data[i]; // one data row
